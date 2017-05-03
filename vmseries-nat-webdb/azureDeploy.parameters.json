@@ -17,9 +17,6 @@
     "fwVmName": {
       "value": "<Name of VM-Series in Azure portal>"
     },
-    "fwVmSize": {
-      "value": "Standard_D3"
-    },
 	"fwImageVersion": {
       "type": "string",
       "defaultValue": "latest",
@@ -51,7 +48,7 @@
         "Standard_D4", 
 		"Standard_D4_v2",
 		"Standard_D5",
-	  	"Standard_D5_v2"
+	  	"Standard_D5_v2",
         "Standard_A4"		    
             ],
         "metadata": {
@@ -66,5 +63,3 @@
     }
   }
 }
-
-fullarmvms1
