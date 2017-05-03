@@ -14,12 +14,6 @@
         "description": "Unique DNS Name for the Public IP used to access PAN Firewall VM."
       }
     },
-    "dnsNameForNATPublicIP": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access NAT VM."
-      }
-    },
     "fwvmName": {
       "type": "string",
       "metadata": {
@@ -115,7 +109,6 @@
     "fwOffer" : "vmseries1",
     "fwPublisher": "paloaltonetworks",
     "fwpublicIPName": "fwPublicIP",
-    "natPublicIPName": "natPublicIP",
     "virtualNetworkName": "fwVNET",
     "addressPrefix": "[concat(parameters('IPAddressPrefix'), '.0.0/16')]",
     "subnet0Name": "Mgmt",
@@ -137,7 +130,6 @@
     "PrivateIPAddress2": "[variables('FWPrivateIPAddressTrust')]",
     "PrivateIPAddress3": "[variables('WebPrivateIPAddress')]",
     "PrivateIPAddress4": "[variables('DBPrivateIPAddress')]",
-    "PrivateIPAddress5": "[variables('NATPrivateIPAddress')]",
     "publicIPAddressType": "Dynamic",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "nsgname-mgmt": "DefaultNSG",
@@ -147,7 +139,6 @@
     "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
     "subnet4Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet4Name'))]",
     "routeTableUntrust": "FWUntrust-to-Internet",
-    "routeTableNAT": "NAT-to-FW",
     "routeTableWeb": "Web-to-FW",
     "routeTableDB": "DB-to-FW",
     "routeTableTrust": "Trust-to-intranetwork"
@@ -701,23 +692,6 @@
                  }
                ]
             }
-        }
-     },
-     { 
-        "name": "[concat('nat-vm','/installcustomscript')]",
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "apiVersion": "[variables('apiVersion')]",
-        "location": "[variables('location')]",
-        "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/', 'nat-vm')]"],
-        "properties":
-         {   
-              "publisher": "Microsoft.OSTCExtensions",
-              "type": "CustomScriptForLinux",
-              "typeHandlerVersion": "1.2",
-              "settings": {
-                 "fileUris": ["https://raw.githubusercontent.com/PaloAltoNetworks/azure/master/vmseries-nat-webdb/iptables-ipsec-nat.sh"],
-                 "commandToExecute": "[concat('/bin/bash iptables-ipsec-nat.sh ', parameters('IPAddressPrefix'))]"
-             }
         }
      }
   ]

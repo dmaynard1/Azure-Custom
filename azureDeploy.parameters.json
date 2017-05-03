@@ -14,9 +14,6 @@
     "dnsNameForFwPublicIP": {
       "value": "<Globally unique lowercase name for VM-Series eth0 (MGMT)>"
     },
-    "dnsNameForNATPublicIP": {
-      "value": "<Globally unique lowercase name for NAT VM>"
-    },
     "fwVmName": {
       "value": "<Name of VM-Series in Azure portal>"
     },
