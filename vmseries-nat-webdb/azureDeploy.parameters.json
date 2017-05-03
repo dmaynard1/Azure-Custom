@@ -14,6 +14,9 @@
     "dnsNameForFwPublicIP": {
       "value": "<Globally unique lowercase name for VM-Series eth0 (MGMT)>"
     },
+    "dnsNameForUNTRUSTPublicIP": {
+      "value": "<Globally unique lowercase name for UNTRUST name>"
+    },
     "fwVmName": {
       "value": "<Name of VM-Series in Azure portal>"
     },

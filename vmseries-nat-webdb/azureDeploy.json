@@ -14,6 +14,12 @@
         "description": "Unique DNS Name for the Public IP used to access PAN Firewall VM."
       }
     },
+    "dnsNameForUNTRUSTPublicIP": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique DNS Name for the Public IP used to access FW Untrsut VM."
+      }
+    },
     "fwvmName": {
       "type": "string",
       "metadata": {
@@ -109,6 +115,7 @@
     "fwOffer" : "vmseries1",
     "fwPublisher": "paloaltonetworks",
     "fwpublicIPName": "fwPublicIP",
+    "fwpublicUntrustIPName": "fwPublicUntrustIP",
     "virtualNetworkName": "fwVNET",
     "addressPrefix": "[concat(parameters('IPAddressPrefix'), '.0.0/16')]",
     "subnet0Name": "Mgmt",
@@ -168,12 +175,12 @@
     {
       "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[variables('FWPublicIPName')]",
+      "name": "[variables('fwpublicUntrustIPName')]",
       "location": "[variables('location')]",
       "properties": {  
         "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
         "dnsSettings": {
-          "domainNameLabel": "[parameters('dnsNameForFWPublicIP')]"
+          "domainNameLabel": "[parameters('dnsNameForUNTRUSTPublicIP')]"
         }
       } 
     },
@@ -421,7 +428,7 @@
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[variables('FWPrivateIPAddressUntrust')]",
                 "publicIPAddress": {
-                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('FWPublicIPName'))]"
+                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('fwpublicIPName'))]"
                 },
 				"subnet": {
                   "id": "[variables(concat('subnet','1','Ref'))]"
@@ -516,22 +523,22 @@
         "name": "[concat('FW', variables('nicName'), '0')]",
         "location": "[variables('location')]",
         "dependsOn": [
-            "[concat('Microsoft.Network/publicIPAddresses/', variables('FWPublicIPName'))]",
+            "[concat('Microsoft.Network/publicIPAddresses/', variables('fwpublicUntrustIPName'))]",
             "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
         ],      
         "tags": {
-          "displayName": "[concat('NetworkInterfaces', 'FW')]"
+          "displayName": "[concat('NetworkInterfaces', 'FWUNTRUST')]"
         },        
         "properties": {
           "enableIPForwarding": true,
           "ipConfigurations": [
             {
-              "name": "[concat('ipconfig', 'FW')]",
+              "name": "[concat('ipconfig', 'FWUNTRUST')]",
               "properties": {
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[variables('FWPrivateIPAddress')]",
                 "publicIPAddress": {
-                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('FWPublicIPName'))]"
+                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('fwpublicUntrustIPName'))]"
                 },
                 "subnet": {
                   "id": "[variables(concat('subnet','1','Ref'))]"
