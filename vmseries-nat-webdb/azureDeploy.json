@@ -428,9 +428,9 @@
                 "privateIPAllocationMethod": "Static",
                 "privateIPAddress": "[variables('FWPrivateIPAddressUntrust')]",
                 "publicIPAddress": {
-                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('fwpublicIPName'))]"
+                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('fwpublicUntrustIPName'))]"
                 },
-				"subnet": {
+		"subnet": {
                   "id": "[variables(concat('subnet','1','Ref'))]"
                 }
               }
@@ -515,37 +515,6 @@
               }
             }
           ] 
-        }
-      },
-      {     
-        "apiVersion": "[variables('apiVersion')]",
-        "type": "Microsoft.Network/networkInterfaces",
-        "name": "[concat('FW', variables('nicName'), '0')]",
-        "location": "[variables('location')]",
-        "dependsOn": [
-            "[concat('Microsoft.Network/publicIPAddresses/', variables('fwpublicUntrustIPName'))]",
-            "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-        ],      
-        "tags": {
-          "displayName": "[concat('NetworkInterfaces', 'FWUNTRUST')]"
-        },        
-        "properties": {
-          "enableIPForwarding": true,
-          "ipConfigurations": [
-            {
-              "name": "[concat('ipconfig', 'FWUNTRUST')]",
-              "properties": {
-                "privateIPAllocationMethod": "Static",
-                "privateIPAddress": "[variables('FWPrivateIPAddress')]",
-                "publicIPAddress": {
-                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('fwpublicUntrustIPName'))]"
-                },
-                "subnet": {
-                  "id": "[variables(concat('subnet','1','Ref'))]"
-                }
-              }
-            }
-          ]
         }
       },
       {

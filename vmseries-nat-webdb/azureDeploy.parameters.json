@@ -22,7 +22,7 @@
     },
 	"fwImageVersion": {
       "type": "string",
-      "defaultValue": "latest",
+      "defaultValue": "7.1.1",
       "allowedValues": [
         "7.1.1",
 		"8.0.0"		    
