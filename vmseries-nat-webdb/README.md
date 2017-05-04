@@ -1,4 +1,4 @@
-# VM-Series with NAT VM, and VM's for Web and DB subnet
+# VM-Series with VM's for Web and DB subnet-UDR(User Defined Routetables)
 
 This ARM template deploys a VM-Series next generation firewall VM in an Azure resource group alongwith the following resources similar to a typical two tier architecture. It also adds the relevant User-Defined Route (UDR) tables to send all traffic through the VM-Series firewall.
 
