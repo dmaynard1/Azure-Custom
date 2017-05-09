@@ -224,6 +224,7 @@
         "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
         "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet3Name'))]",
 	"storageAccountSetupURL" : "[concat(parameters('baseUrl'),'/storageAccount-',parameters('storageAccountNewOrExisting'),'.json')]",
+	"vmTemplateUrl": "[concat(parameters('baseUrl'), '/virtual-machine-', parameters('authenticationType'),'.json')]",
     "availabilitySetName": "VMSeriesFwAvSet"
     },
     "resources": [

@@ -112,6 +112,13 @@
                 "description": "Your source public IP address. Added to the inbound DefaultNSG on eth0 (MGMT)"
             }
         },
+		"baseUrl" : {
+		"type" : "string",
+		"metadata": {
+			"artifactsBaseUrl": ""
+		},
+		"defaultValue": "https://raw.githubusercontent.com/PaloAltoNetworks/azure/master/vmseries-avset"
+	},
     "virtualNetworkName": {
       "type": "string",
       "metadata": {
