@@ -117,7 +117,7 @@
 		"metadata": {
 			"artifactsBaseUrl": ""
 		},
-		"defaultValue": "https://raw.githubusercontent.com/PaloAltoNetworks/azure/master/vmseries-avset"
+		"defaultValue": "https://raw.githubusercontent.com/dmaynard1/Azure-Custom/master/vmseries-ARM4interface"
 	},
     "virtualNetworkName": {
       "type": "string",
