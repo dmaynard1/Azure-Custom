@@ -112,13 +112,6 @@
                 "description": "Your source public IP address. Added to the inbound DefaultNSG on eth0 (MGMT)"
             }
         },
-        "baseUrl" : {
-		"type" : "string",
-		"metadata": {
-			"artifactsBaseUrl": ""
-		},
-		"defaultValue": "https://raw.githubusercontent.com/saurabhtrekker/UI1/master"
-	},
     "virtualNetworkName": {
       "type": "string",
       "metadata": {
