@@ -518,6 +518,9 @@
                     "imageSku": {
                         "value": "[variables('imageSku')]"
                     },
+					"imageVersion": {
+                        "value": "[variables('imageVersion')]"
+                    },
                     "imageOffer": {
                         "value": "[variables('imageOffer')]"
                     },
