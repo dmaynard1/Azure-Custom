@@ -82,17 +82,17 @@
                 "description": "SSH rsa public key file as a string."
             }
         },
-    	"imageVersion": {
-        "type": "string",
-        "defaultValue": "latest",
-        "allowedValues": [
-        "7.1.1",
-		"8.0.0"		    
+        "imageVersion": {
+            "type": "string",
+            "metadata": {
+                "descritpion": "PAN-OS Version."
+            },
+            "allowedValues": [
+                "7.1.1",
+                "8.0.0"
             ],
-        "metadata": {
-        "description": "PAN-OS version."
-            }
-        }, 
+            "defaultValue": "latest"
+		},
         "vmSize": {
             "type": "string",
             "allowedValues": [
