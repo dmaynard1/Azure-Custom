@@ -18,24 +18,6 @@ Azure-Custom/azureDeploy.json
 - Trust Subnet: 192.168.2.0/24 - For eth2 of firewall
 - DMZ Subnet: 192.168.3.0/24 - For eth3 of firewall
 
-You can also download the templates and customize them as needed. To deploy them from Azure CLI use the following commands:
-```
-azure login
-azure config mode arm
-azure group create -v -n <i>ResourceGroupName</i>  -l <i>AzureLocationName</i>  -d  <i>DeploymentLabel</i>  \
-    -f azureDeploy.json  -e azureDeploy.parameters.json
-For example:
-azure group create  -n myResGp1  -l westus  -d myResGp1Dep1  \
-    -f azureDeploy.json  -e azureDeploy.parameters.json
-```
-
 See documentation on how to configure the VM-Series firewall after deployment. Here is a basic outline:
 - If you want to use hourly Pay-As-You-Go (PAYG) options then change the template's sku variable to bundle1 or bundle2 instead of byol.
 - Connect to the firewall using the public IP or DNS assigned to **eth0** of the firewall
-- Enable **eth1** and **eth2** as DHCP interfaces with a default virtual router
-- Create static routes for each of the firewall's dataplane interfaces to point to the .1 of its subnet
-- Create a NAT policy inside the firewall to decide where the traffic should go after deployment, for example you can send it, via DNAT, to the webserver (192.168.3.5) in case of Internet facing deployments.
-- Create security policies: Inter-zone from Untrust/Trust and Intra-zone (web subnet to/from DB subnet)
-- Once these are configured:
-    - connect over SSH to the NAT VM's public IP/DNS which sends it to the firewall, which using the firewall's DNAT is sent to the webserver
-    - Install an Apache webserver on this VM using  `sudo apt-get install apache2`
