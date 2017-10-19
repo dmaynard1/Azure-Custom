@@ -86,7 +86,7 @@
 <<<<<<< HEAD
 			"dataDisks": [
             {
-              "name": "datadisk1",
+              "name": "node0",
               "diskSizeGB": "[parameters('BootstrapUriSizeGB')]",
               "lun": 0,
               "vhd": {
