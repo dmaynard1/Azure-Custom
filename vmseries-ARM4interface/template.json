@@ -528,6 +528,12 @@
                     "location": {
                         "value": "[parameters('location')]"
                     },
+					"BootstrapUriSizeGB": {
+						"value": "[parameters('BootstrapUriSizeGB')]"
+					},
+					"BootstrapUri": {
+						"value": "[parameters('BootstrapUri')]"
+					},
                     "vmName": {
                         "value": "[parameters('vmName')]"
                     },
