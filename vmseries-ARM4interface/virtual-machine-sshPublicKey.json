@@ -83,7 +83,19 @@
                     "sku": "[parameters('imageSku')]",
                     "version": "[parameters('imageVersion')]"
                 },
-                "osDisk": {
+			"dataDisks": [
+            {
+              "name": "node0",
+              "diskSizeGB": "[parameters('BootstrapUriSizeGB')]",
+              "lun": 0,
+              "vhd": {
+                "uri": "[parameters('BootstrapUri')]"
+              },
+              "caching": "ReadOnly",
+              "createOption": "Attach"
+				}
+			],
+			"osDisk": {
                     "name": "osdisk",
                     "vhd": {
                         "uri": "[concat('http://', parameters('newStorageAccount'), '.blob.core.windows.net/vhds/', parameters('vmName'), '-', parameters('imageOffer'), '-', parameters('imageSku'), '.vhd')]"

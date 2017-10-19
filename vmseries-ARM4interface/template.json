@@ -39,6 +39,20 @@
                 "description": "Storage Resource Group of the Existing VM."
             }
         },
+		"BootstrapUriSizeGB": {
+		"type": "string",
+		"defaultValue": "2",
+		"metadata": {
+        "description": "Size of bootstrap disk"
+			}
+		},
+		"BootstrapUri": {
+		"type": "string",
+		"defaultValue": "https://bootst.blob.core.windows.net/vhds/panbootstrap.vhd",
+		"metadata": {
+        "description": "URI of bootstrap disk"
+			}
+		},
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
