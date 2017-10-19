@@ -83,39 +83,27 @@
                     "sku": "[parameters('imageSku')]",
                     "version": "[parameters('imageVersion')]"
                 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-			"dataDisks": [
-            {
-              "name": "node0",
-              "diskSizeGB": "[parameters('BootstrapUriSizeGB')]",
-              "lun": 0,
-              "vhd": {
-                "uri": "[parameters('BootstrapUri')]"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Attach"
+				"dataDisks": [
+					{
+					"name": "datadisk1",
+					"diskSizeGB": "[parameters('BootstrapUriSizeGB')]",
+					"lun": 0,
+					"vhd": {
+					"uri": "[concat('http://', parameters('newStorageAccount'), '.blob.core.windows.net/vhds/bootstrap.vhd')]"
+					},
+					"caching": "ReadOnly",
+					"createOption": "Attach"
+					}
+					],
+				"osDisk": {
+					"name": "osdisk",
+					"vhd": {
+						"uri": "[concat('http://', parameters('newStorageAccount'), '.blob.core.windows.net/vhds/', parameters('vmName'), '-', parameters('imageOffer'), '-', parameters('imageSku'), '.vhd')]"
+					},
+					"caching": "ReadWrite",
+					"createOption": "FromImage"
 				}
-			],
-			"osDisk": {
-=======
-                "osDisk": {
->>>>>>> parent of dea7df3... test bootstrap
-=======
-                "osDisk": {
->>>>>>> parent of dea7df3... test bootstrap
-=======
-                "osDisk": {
->>>>>>> parent of dea7df3... test bootstrap
-                    "name": "osdisk",
-                    "vhd": {
-                        "uri": "[concat('http://', parameters('newStorageAccount'), '.blob.core.windows.net/vhds/', parameters('vmName'), '-', parameters('imageOffer'), '-', parameters('imageSku'), '.vhd')]"
-                    },
-                    "caching": "ReadWrite",
-                    "createOption": "FromImage"
-                }
-            },
+			},
             "networkProfile": {
                 "networkInterfaces": [{
                     "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicName'),'0'))]",
