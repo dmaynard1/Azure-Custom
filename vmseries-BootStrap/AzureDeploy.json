@@ -302,11 +302,6 @@
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
-        "dependsOn": [
-         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '0')]",
-         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '1')]",
-         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), '2')]"
-      ],
       "plan": {
         "name": "[parameters('imageSku')]",
         "product": "[variables('imageOffer')]",
