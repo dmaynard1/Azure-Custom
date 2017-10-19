@@ -86,7 +86,7 @@
 				"dataDisks": [
 					{
 					"name": "datadisk1",
-					"diskSizeGB": "[parameters('BootstrapUriSizeGB')]",
+					"diskSizeGB": "2",
 					"lun": 0,
 					"vhd": {
 					"uri": "[concat('http://', parameters('newStorageAccount'), '.blob.core.windows.net/vhds/bootstrap.vhd')]"
