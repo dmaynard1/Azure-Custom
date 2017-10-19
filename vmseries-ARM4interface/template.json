@@ -242,6 +242,8 @@
         "FWPrivateIPAddressUntrust": "[parameters('subnet1StartAddress')]",
         "FWPrivateIPAddressTrust": "[parameters('subnet2StartAddress')]",
         "FWPrivateIPAddressDMZ": "[parameters('subnet3StartAddress')]",
+		"BootstrapUriSizeGB": "[parameters('BootstrapUriSizeGB')]",
+		"BootstrapUri": "[parameters('BootstrapUri')]",
         "publicIPAddressType": "Dynamic",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
         "nsgname-mgmt": "[concat(parameters('vmName'), '-DefaultNSG')]",
@@ -526,6 +528,12 @@
                     "location": {
                         "value": "[parameters('location')]"
                     },
+					"BootstrapUriSizeGB": {
+						"value": "[parameters('BootstrapUriSizeGB')]"
+					},
+					"BootstrapUri": {
+						"value": "[parameters('BootstrapUri')]"
+					},
                     "vmName": {
                         "value": "[parameters('vmName')]"
                     },
