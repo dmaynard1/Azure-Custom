@@ -85,6 +85,7 @@
                 },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			"dataDisks": [
             {
               "name": "node0",
@@ -98,6 +99,9 @@
 				}
 			],
 			"osDisk": {
+=======
+                "osDisk": {
+>>>>>>> parent of dea7df3... test bootstrap
 =======
                 "osDisk": {
 >>>>>>> parent of dea7df3... test bootstrap
