@@ -83,6 +83,7 @@
                     "sku": "[parameters('imageSku')]",
                     "version": "[parameters('imageVersion')]"
                 },
+<<<<<<< HEAD
 			"dataDisks": [
             {
               "name": "datadisk1",
@@ -96,6 +97,9 @@
 				}
 			],
 			"osDisk": {
+=======
+                "osDisk": {
+>>>>>>> parent of dea7df3... test bootstrap
                     "name": "osdisk",
                     "vhd": {
                         "uri": "[concat('http://', parameters('newStorageAccount'), '.blob.core.windows.net/vhds/', parameters('vmName'), '-', parameters('imageOffer'), '-', parameters('imageSku'), '.vhd')]"
