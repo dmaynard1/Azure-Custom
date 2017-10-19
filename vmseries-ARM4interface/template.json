@@ -39,20 +39,6 @@
                 "description": "Storage Resource Group of the Existing VM."
             }
         },
-		"BootstrapUriSizeGB": {
-		"type": "string",
-		"defaultValue": "2",
-		"metadata": {
-        "description": "Size of bootstrap disk"
-			}
-		},
-		"BootstrapUri": {
-		"type": "string",
-		"defaultValue": "https://bootst.blob.core.windows.net/vhds/panbootstrap.vhd",
-		"metadata": {
-        "description": "URI of bootstrap disk"
-			}
-		},
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
@@ -242,8 +228,6 @@
         "FWPrivateIPAddressUntrust": "[parameters('subnet1StartAddress')]",
         "FWPrivateIPAddressTrust": "[parameters('subnet2StartAddress')]",
         "FWPrivateIPAddressDMZ": "[parameters('subnet3StartAddress')]",
-		"BootstrapUriSizeGB": "[parameters('BootstrapUriSizeGB')]",
-		"BootstrapUri": "[parameters('BootstrapUri')]",
         "publicIPAddressType": "Dynamic",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
         "nsgname-mgmt": "[concat(parameters('vmName'), '-DefaultNSG')]",
