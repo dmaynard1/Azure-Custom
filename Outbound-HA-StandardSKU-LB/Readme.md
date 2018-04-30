@@ -1,6 +1,6 @@
 
 [<img src="http://azuredeploy.net/deploybutton.png"/>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdmaynard1%2FAzure-Custom%2Fmaster%2FOutbound-HA-StandardSKU-LB%2FazureDeploy.json)
-https://raw.githubusercontent.com/dmaynard1/Azure-Custom/master/Outbound-HA-StandardSKU-LB/azureDeploy.json
+
 As part of the deployment options:
 - You MUST define a source IP address or subnet to allow management access. (0.0.0.0/0 is not allowed)
 
