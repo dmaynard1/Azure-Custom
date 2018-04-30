@@ -1130,7 +1130,7 @@
         "firewall 2 management": {
             "type": "String",
             "value": "[reference('IP-FW2-Management').dnsSettings.fqdn]"
-        }
+        },
         "firewall 3 management": {
             "type": "String",
             "value": "[reference('IP-FW3-Management').dnsSettings.fqdn]"
