@@ -1,11 +1,12 @@
 
 [<img src="http://azuredeploy.net/deploybutton.png"/>](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdmaynard1%2FAzure-Custom%2Fmaster%2FOutbound-HA-StandardSKU-LB%2FazureDeploy.json)
+
 As part of the deployment options:
 - You MUST define a source IP address or subnet to allow management access. (0.0.0.0/0 is not allowed)
 
 This template deploys a firewall environment that includes:
 
-- Two Palo Alto Networks Firewalls (license type user selectable)
+- Three (3) Palo Alto Networks Firewalls (license type user selectable)
 - One Standard SKU Internal Load Balancer (LB-Egress)
 - 1 Linux Web Server
 - 1 Linux Dev Server
