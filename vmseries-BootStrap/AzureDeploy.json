@@ -49,12 +49,13 @@
        "type": "string",
        "allowedValues": [
           "7.1.1",
+          "8.0.0",
           "latest"
        ],
        "metadata": {
           "description": "PAN OS Version"
        },
-       "defaultValue": "7.1.1"
+       "defaultValue": "8.0.0"
     },
     "imageSku": {
       "type": "string",
